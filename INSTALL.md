@@ -1,22 +1,6 @@
 # Install Odoo dependencies
 
-* libffi-dev
-* libgeoip-dev
-* libjpeg-dev
-* libldap2-dev
-* libsasl2-dev
-* libxml2-dev
-* libxslt1-dev
-* nginx
-* node-less
-* postfix
-* postgresql
-* postgresql-server-dev-9.5
-* python-dev
-* python-pip
-* python-psycopg2
-* python-virtualenv
-* zlib1g-dev
+`$ sudo apt install libffi-dev libgeoip-dev libjpeg-dev libldap2-dev libsasl2-dev libxml2-dev libxslt1-dev node-less postgresql postgresql-server-dev-9.5 python-dev python-pip python-psycopg2 zlib1g-dev`
 
 # Webkit
 
@@ -27,7 +11,11 @@
 
 # PostgreSQL
  
-* Create a PostgreSQL user for odoo
+* Create a PostgreSQL user for odoo:
+
+```
+$ createuser -s odoo
+```
 
 # Odoo
 
@@ -38,26 +26,6 @@
 
 `$ virtualenv env && . env/bin/activate && pip install -r requirements.txt`
 
-* Create /etc/odoo
-* Create Odoo config file
-* Create Odoo init script
-* Create /var/log/odoo
-* Create /var/backups/odoo
 * Enable and start Odoo
 
-# Nginx
-
-* Create Nginx config file
-* Create the SSL directory /etc/nginx/ssl
-* Generate the SSL certificate
-
-```
-# openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -subj "/C=US/ST=CA/L=Los Angeles/O=IT/CN={{ fqdn }}" \
-        -keyout /etc/nginx/ssl/odoo.key \
-        -out /etc/nginx/ssl/odoo.crt
-```
-
-* Change the permission of the certificate file
-* Enable new odoo virtual host
-* Enable and start Nginx
+`(env)$ odoo -c odoo.conf`
