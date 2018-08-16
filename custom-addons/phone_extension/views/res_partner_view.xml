@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright 2018 Open Source Integrators
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">Phone Extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="after">
+                #<field name="phone_extension"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
