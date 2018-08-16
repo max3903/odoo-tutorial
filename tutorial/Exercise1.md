@@ -34,3 +34,90 @@ We will create a first module to add a phone extension field on the partner reco
 * Upgrade the module list
 * Search for your module
 * Open the record and check the information
+
+## Step 2
+
+* Create the following directories:
+
+```bash
+$ mkdir models views demo
+```
+
+### Models
+
+* Edit `__init__.py` to have:
+
+```python
+from . import models
+```
+
+* In models, create a `__init__.py` file with:
+
+```python
+from . import res_partner
+```
+
+* In models, create a `res_partner.py` file with:
+
+```python
+from odoo import fields, models
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    phone_extension = fields.Integer('Phone Extension')
+```
+
+### Views
+
+* In views, create a `res_partner_view.xml` file with:
+
+```xml
+<?xml version="1.0"?>
+<odoo>
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">Phone Extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="after">
+                #<field name="phone_extension"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+```
+
+* Update the `__manifest__.py` file to add the `data` keyword:
+
+```python
+    'data': [
+        'views/res_partner_view.xml',
+    ], 
+```
+
+### Demo data
+
+* In demo, create a `res_partner_demo.xml` file with:
+
+```xml
+<?xml version="1.0"?>
+<odoo>
+    <record id="base.res_partner_12" model="res.partner">
+        <field name="phone_extension">123</field>
+    </record>
+</odoo>
+```
+
+* Update the `__manifest__.py` file to add the `demo` keyword:
+
+```python
+    'demo': [
+        'demo/res_partner_demo.xml',
+    ], 
+```
+
+* Restart Odoo
+* Update the module list
+* Upgrade your module
