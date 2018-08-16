@@ -15,10 +15,4 @@
     'depends': [
         'contacts',
     ],
-    'data': [
-        'views/res_partner_view.xml',
-    ],
-    'demo': [
-        'demo/res_partner_demo.xml',
-    ],
 }
