@@ -1,5 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
-.gitignore
+__pycache__/
 .idea/
 /env/
 /src/
