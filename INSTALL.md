@@ -11,21 +11,39 @@
 
 # PostgreSQL
  
-* Create a PostgreSQL user for odoo:
+* Create a PostgreSQL user for Odoo (odoo/odoo):
 
-```
-$ createuser -s odoo
+```bash
+$ createuser --superuser --createdb --username postgres --no-createrole --pwprompt odoo
 ```
 
 # Odoo
 
-* Create an Odoo user
 * Clone the repository
-* Change the ownership of the repo to odoo
+
+`$ git clone https://github.com/max3903/odoo-tutorial.git`
+
 * Create the environment
 
-`$ virtualenv env && . env/bin/activate && pip install -r requirements.txt`
+```bash
+$ cd odoo-tutorial
+$ virtualenv env && . env/bin/activate && pip install -r requirements.txt
+```
 
-* Enable and start Odoo
+* Create odoo.conf with:
 
-`(env)$ odoo -c odoo.conf`
+```python
+[options]
+addons_path=/$HOME/odoo-tutorial/custom-addons
+admin_passwd = admin
+db_host = localhost
+db_port = 5432
+db_password = odoo
+db_user=odoo
+```
+
+* Start Odoo
+
+```bash
+(env)$ odoo -c odoo.conf
+```

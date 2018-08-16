@@ -1,69 +1,49 @@
-# Template Project
+# Odoo Tutorial
 
-Template for an Odoo project
+This is a step-by-step tutorial to discover how to create Odoo modules.
 
-# Prerequisites
+For more information, please read:
 
-For Ursa employees, run the `Install` Job on Jenkins. Otherwise look at the INSTALL file.
+* [Odoo documentation](https://www.odoo.com/documentation/11.0/index.html)
+* [OCA Guidelines](https://github.com/OCA/maintainer-tools/blob/master/CONTRIBUTING.md)
 
-# Configuration
+## Prerequisites
 
-* Add the extra repositories in `repo.list`
-* Add your version of Odoo, modules and Python dependencies in `requirements.txt`
+Look at the [INSTALL](./INSTALL.md) file.
 
-# Build your development environment
+## Exercise 1
 
-`$ ./dev.sh`
+We will create a first module to add a phone extension field on the partner record.
 
-and start Odoo
+### Step 1
 
-`$ ./env/bin/odoo -c dev.conf`
+* Create a directory `phone_extension` in custom-addons
+* Within that directory, create an empty file `__init__.py`
+* Create the manifest file `__manifest__.py` with:
 
-## For custom module
-
-* Create a new branch and add your module in custom-addons
-* Add your module as a dependency of the customer module
-* Push your branch and create a pull request against develop
-
-## For contributed module
-
-* Create a new branch in src/<repo> and add your module
-* Create the setup directory
-
+```python
+# Copyright 2018 Open Source Integrators
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+{
+    'name': 'Phone extension',
+    'summary': 'Store the phone extension of your contacts',
+    'version': '11.0.1.0.0',
+    'development_status': 'Alpha',
+    'category': 'Contacts',
+    'website': 'https://github.com/max3903/odoo-tutorial',
+    'author': 'Open Source Integrators, Odoo Community Association (OCA)',
+    'maintainers': ['max3903'],
+    'license': 'AGPL-3',
+    'application': False,
+    'installable': True,
+    'depends': [
+        'contacts',
+    ],
+}
 ```
-$ cd src/<repo>/setup
-$ mkdir -p module_name/odoo/addons
-$ ln -s ../module_name module_name/odoo/addons/.
-$ vi module_name/setup.py
-import setuptools
-
-setuptools.setup(
-    setup_requires=['setuptools-odoo'],
-    odoo_addon=True,
-)
-$ vi module_name/odoo/__init__.py
-__import__('pkg_resources').declare_namespace(__name__)
-$ cp module_name/odoo/__init__.py module_name/odoo/addons/__init__.py
-```
-
-* Commit your changes and push your module to Github
-* In Github (http://github.com/ursais/repo), create a pull request against the corresponding OCA repository
-* Add your module in the requirements.txt
-* Add your module as a dependency of the customer module
-* Push your branch and create a pull request against develop
-
-# Deploy to an environment
-
-For Ursa employees, run the `<Project>_Deploy` Job on Jenkins. Otherwise:
-
-* Pull the repo
-
-`$ git pull`
-
-* Update the environment
-
-`$ . env/bin/activate && pip install -r requirements.txt`
-
+* Create the `readme` folder for the documentation
 * Restart Odoo
-
-`# service odoo restart`
+* Activate the developer mode
+* Upgrade the module list
+* Search for your module
+* Open the record and check the information
