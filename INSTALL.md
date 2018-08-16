@@ -1,6 +1,9 @@
 # Install Odoo dependencies
 
-`$ sudo apt install libffi-dev libgeoip-dev libjpeg-dev libldap2-dev libsasl2-dev libxml2-dev libxslt1-dev node-less postgresql postgresql-server-dev-9.5 python-dev python-pip python-psycopg2 zlib1g-dev`
+```bash
+$ sudo apt install libffi-dev libgeoip-dev libjpeg-dev libldap2-dev libsasl2-dev libxml2-dev libxslt1-dev node-less postgresql postgresql-server-dev-9.5 python-dev python-pip python-psycopg2 zlib1g-dev
+$ sudo pip install virtualenv
+```
 
 # Webkit
 
