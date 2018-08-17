@@ -7,7 +7,7 @@ $ sudo pip install virtualenv
 
 # Webkit
 
-* Download Webkit from https://github.com/wkhtmltopdf/wkhtmltopdf/releases/tag/0.12.1
+* Download [Webkit](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/tag/0.12.1)
 * Install Webkit and create a symlink:
 
 `# ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf`
