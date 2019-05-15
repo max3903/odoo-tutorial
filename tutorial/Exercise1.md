@@ -137,9 +137,13 @@ $ mkdir security
 <odoo>
     <record id="group_phone_extension" model="res.groups">
         <field name="name">Phone Extension Group</field>
-        <field name="implied_ids"
-               eval="[(4, ref('base.group_erp_manager'))]"/>
     </record>
+    
+    <record id="base.group_erp_manager" model="res.groups">
+        <field name="implied_ids"
+               eval="[(4, ref('group_phone_extension'))]"/>
+    </record>
+    
 </odoo>
 ```
 
