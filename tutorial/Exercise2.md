@@ -1,7 +1,7 @@
 ```
 #!/usr/bin/python
   
-from xmlrpc.client import xmlrpclib
+import xmlrpc.client as xmlrpclib
 
 user = 'admin' #the user
 pwd = 'admin'      #the password of the user
