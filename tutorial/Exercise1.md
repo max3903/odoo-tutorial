@@ -192,7 +192,16 @@ $ mkdir report
 ```xml
 <?xml version="1.0"?>
 <odoo>
-        
+    <record id="report_due_payment_phone_extension" model="ir.ui.view">
+        <field name="name">Payment Due with Phone extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="	account.report_overdue_document"/>
+        <field name="arch" type="xml">
+            <xpath expr="//t/div/div/p/" position="inside">
+                Phone: <field name="phone"/> #<field name="phone_extension"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
 ```
 
