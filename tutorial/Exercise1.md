@@ -31,7 +31,7 @@ We will create a first module to add a phone extension field on the partner reco
 * Create the `readme` folder for the documentation
 * Restart Odoo
 * Activate the developer mode
-* Upgrade the module list
+* Update the Apps list
 * Search for your module
 * Open the record and check the information
 
