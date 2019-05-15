@@ -119,5 +119,39 @@ class ResPartner(models.Model):
 ```
 
 * Restart Odoo
-* Update the module list
+* Update the Apps list
+* Upgrade your module
+
+## Step 3
+
+### Security
+
+```bash
+$ mkdir security
+```
+
+* In security, create a `phone_extension.xml` file with:
+
+```xml
+<?xml version="1.0"?>
+<odoo>
+    <record id="group_phone_extension" model="res.groups">
+        <field name="name">Phone Extension Group</field>
+        <field name="implied_ids"
+               eval="[(4, ref('base.group_erp_manager'))]"/>
+    </record>
+</odoo>
+```
+
+* Update the `__manifest__.py` file to have:
+
+```python
+    'data': [
+        'security/phone_extension.xml',
+        'views/res_partner_view.xml',
+    ]
+ ```
+ 
+* Restart Odoo
+* Update the Apps list
 * Upgrade your module
