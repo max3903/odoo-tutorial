@@ -175,7 +175,37 @@ $ mkdir security
 </odoo>
 ```
 
+* Restart Odoo
+* Update the Apps list
+* Upgrade your module
 
+## Step 3
+
+### Reports
+
+```bash
+$ mkdir report
+```
+
+* In report, create a `report_due_payment.xml` file with:
+
+```xml
+<?xml version="1.0"?>
+<odoo>
+        
+</odoo>
+```
+
+* Update the `__manifest__.py` file to have:
+
+```python
+    'data': [
+        'security/phone_extension.xml',
+        'views/res_partner_view.xml',
+        'report/report_due_payment.xml',
+    ]
+    'depends': ['contacts, 'account']
+ ```
  
 * Restart Odoo
 * Update the Apps list
