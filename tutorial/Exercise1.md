@@ -156,6 +156,27 @@ $ mkdir security
     ]
  ```
  
+* Update the view to only show the extension to the new group:
+
+```xml
+<?xml version="1.0"?>
+<odoo>
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">Phone Extension</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="after">
+                #<field name="phone_extension"
+                        groups="phone_extension.group_phone_extension"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+```
+
+
+ 
 * Restart Odoo
 * Update the Apps list
 * Upgrade your module
