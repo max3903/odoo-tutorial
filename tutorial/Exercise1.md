@@ -9,22 +9,23 @@ We will create a first module to add a phone extension field on the partner reco
 * Create the manifest file `__manifest__.py` with:
 
 ```python
-# Copyright 2018 Open Source Integrators
+# Copyright 2020 Open Source Integrators
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    'name': 'Phone extension',
-    'summary': 'Store the phone extension of your contacts',
-    'version': '11.0.1.0.0',
-    'development_status': 'Alpha',
-    'category': 'Contacts',
-    'website': 'https://github.com/max3903/odoo-tutorial',
-    'author': 'Open Source Integrators, Odoo Community Association (OCA)',
-    'maintainers': ['max3903'],
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contacts',
+    "name": "Phone extension",
+    "summary": "Store the phone extension of your contacts",
+    "version": "11.0.1.0.0",
+    "development_status": "Alpha",
+    "category": "Contacts",
+    "website": "https://github.com/max3903/odoo-tutorial",
+    "author": "Open Source Integrators, Odoo Community Association (OCA)",
+    "development_status": ["Alpha"],
+    "maintainers": ["max3903"],
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": [
+        "contacts",
     ],
 }
 ```
@@ -64,9 +65,9 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
-    phone_extension = fields.Integer('Phone Extension')
+    phone_extension = fields.Integer("Phone Extension")
 ```
 
 ### Views
@@ -92,8 +93,8 @@ class ResPartner(models.Model):
 * Update the `__manifest__.py` file to add the `data` keyword:
 
 ```python
-    'data': [
-        'views/res_partner_view.xml',
+    "data": [
+        "views/res_partner_view.xml",
     ], 
 ```
 
@@ -113,8 +114,8 @@ class ResPartner(models.Model):
 * Update the `__manifest__.py` file to add the `demo` keyword:
 
 ```python
-    'demo': [
-        'demo/res_partner_demo.xml',
+    "demo": [
+        "demo/res_partner_demo.xml",
     ], 
 ```
 
@@ -150,10 +151,10 @@ $ mkdir security
 * Update the `__manifest__.py` file to have:
 
 ```python
-    'data': [
-        'security/phone_extension.xml',
-        'views/res_partner_view.xml',
-    ]
+    "data": [
+        "security/phone_extension.xml",
+        "views/res_partner_view.xml",
+    ],
  ```
  
 * Update the view to only show the extension to the new group:
@@ -208,12 +209,12 @@ $ mkdir report
 * Update the `__manifest__.py` file to have:
 
 ```python
-    'data': [
-        'security/phone_extension.xml',
-        'views/res_partner_view.xml',
-        'report/report_due_payment.xml',
-    ]
-    'depends': ['contacts, 'account']
+    "data": [
+        "security/phone_extension.xml",
+        "views/res_partner_view.xml",
+        "report/report_due_payment.xml",
+    ],
+    "depends": ["contacts", "account"],
  ```
  
 * Restart Odoo
